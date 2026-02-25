@@ -1,0 +1,44 @@
+@model FirstTest.Models.Employee
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<h2>Create Employee</h2>
+
+@if (TempData["SuccessMessage"] is string successMessage)
+{
+    <div style="color: green; margin-bottom: 12px;">@successMessage</div>
+}
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name" style="color:red"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email" style="color:red"></span>
+    </div>
+
+    <div>
+        <label asp-for="Department"></label>
+        <input asp-for="Department" />
+        <span asp-validation-for="Department" style="color:red"></span>
+    </div>
+
+    <div>
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" />
+        <span asp-validation-for="Salary" style="color:red"></span>
+    </div>
+
+    <button type="submit">Save Employee</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
